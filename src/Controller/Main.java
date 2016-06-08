@@ -35,7 +35,7 @@ public class Main {
 				UI_Control.Delete();
 				break;
 			case "4":
-				//UI_Control.Update();
+				UI_Control.Update();
 				break;
 			case "5":
 				UI_Control.Search();

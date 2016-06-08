@@ -21,7 +21,7 @@ public class StudentDAO {
 		Connection cnn = null;
 		try {
 			cnn=DbConnection.getConnection("dbstudent");
-			String sql="SELECT * FROM tbstudent";
+			String sql="SELECT * FROM tbstudent ORDER BY id";
 			Statement st=cnn.createStatement();
 			ResultSet rs=st.executeQuery(sql);
 			while(rs.next()){
@@ -69,7 +69,7 @@ public class StudentDAO {
 		ArrayList<Student> students=new ArrayList<>();
 		try {
 			Connection cnn=DbConnection.getConnection("dbStudent");
-			String sql="SELECT * FROM tbstudent WHERE name like ?";
+			String sql="SELECT * FROM tbstudent WHERE name like ? ORDER BY id";
 			PreparedStatement st=cnn.prepareStatement(sql);
 			st.setString(1, "%"+name+"%");
 			ResultSet rs=st.executeQuery();
@@ -121,7 +121,7 @@ public class StudentDAO {
 	public static boolean updateData(Student st){
 		try {
 			Connection cnn=DbConnection.getConnection("dbStudent");
-			String sql="UPDATE tbstudent SET(name=?,sex=?,dob=?) WHERE id=?;";
+			String sql="UPDATE tbstudent SET name=?,sex=?,date_of_birth=? WHERE id=?;";
 			PreparedStatement pps=cnn.prepareStatement(sql);
 			
 			pps.setString(1, st.getName());
