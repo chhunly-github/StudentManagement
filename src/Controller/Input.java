@@ -31,7 +31,7 @@ public class Input {
 		do{
 			try{
 				String date=string(s+"(year/month/day)");
-				String[] arr=date.split("-");
+				String[] arr=date.split("/");
 				int year=Integer.parseInt(arr[0]);
 				int month=Integer.parseInt(arr[1]);
 				int day=Integer.parseInt(arr[2]);
