@@ -1,4 +1,4 @@
-package Model;
+package DTO_Model;
 
 public class Master extends EducationLevel{
 	

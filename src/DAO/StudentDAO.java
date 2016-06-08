@@ -9,10 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-
-
-
-import Model.Student;
+import DTO_Model.Student;
 
 public class StudentDAO {
 	

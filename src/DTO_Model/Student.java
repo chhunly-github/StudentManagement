@@ -1,4 +1,4 @@
-package Model;
+package DTO_Model;
 
 import java.sql.Date;
 

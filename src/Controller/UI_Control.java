@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import DAO.StudentDAO;
-import Model.Student;
+import DTO_Model.Student;
 import Viewer.Viewer;
 
 public class UI_Control {

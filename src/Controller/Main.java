@@ -1,12 +1,7 @@
 package Controller;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-
-import DAO.DbConnection;
 import DAO.StudentDAO;
-import DTO.StudentDTO;
-import Model.Student;
+import DTO_Model.Student;
 import Viewer.Viewer;
 
 public class Main {

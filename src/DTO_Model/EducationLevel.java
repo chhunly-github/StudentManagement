@@ -1,4 +1,4 @@
-package Model;
+package DTO_Model;
 
 public abstract class EducationLevel {
 	
