@@ -97,18 +97,19 @@ public class UI_Control {
 	
 	/*----------------------------------update data----------------------------*/
 	public static void Update(){
-		/*String choice;
+		String choice;
 		do{
 			System.out.println("--------------------------**************************-----------------------");
 			System.out.println("--------------------------Student updating data------------------------");
-			System.out.println("1.)update by id");
-			System.out.println("2.)update by name");
-			System.out.println("3.)update all record");
+			System.out.println("1.)update all");
+			System.out.println("2.)update name");
+			/*System.out.println("3.)update all record")*/;
 			System.out.println("exit.) back to menu");
 			choice=Input.string("Option >");
 			switch(choice){
 			case "1":
-				int id=(int)Input.Floats("Input delete id:");
+				int id=(int)Input.Floats("Input Update id:");
+				
 				ArrayList<Student> idFound=StudentDAO.searchStudentById(id);
 				if(idFound.size()==0){
 					System.out.println("Could not find data id:"+id);
@@ -116,35 +117,45 @@ public class UI_Control {
 				}
 				Viewer.displayData(Student.getFields(), idFound.toArray());
 				System.out.println("Total found:"+idFound.size()+" students");
-				if(!Confirmation("Are you sure to delete")){
-					System.out.println("Deleting data cancel!");
+				//int newid=(int)Input.Floats("Input id:");
+				
+				String newname=Input.string("Input name:");
+				String newgender=Input.string("Input gender(Male/Female):");
+				Date newdate=Input.inputDate("Input date:");
+				
+				if(!Confirmation("Are you sure to update")){
+					System.out.println("Updating data cancel!");
 					break;
 				}
-				if(StudentDAO.deleteDataById(idFound.get(0).getId())){
-					System.out.println("Deleting data succeeded!");
+				if(StudentDAO.updateData(new Student(id,newname,newgender,newdate,null))){
+					System.out.println("Update data succeeded!");
 					break;
 				}
-				System.out.println("Failed to delete data!");
+				System.out.println("Failed to update data!");
 				break;
 			case "2":
-				String name=Input.string("Input search name:");
-				ArrayList<Student> nameFound=StudentDAO.searchStudentByName(name);
-				if(nameFound.size()==0){
-					System.out.println("Could not match any name:"+name);
+				int idF=(int)Input.Floats("Input update id:");
+				
+				ArrayList<Student> Found=StudentDAO.searchStudentById(idF);
+				if(Found.size()==0){
+					System.out.println("Could not find data id:"+idF);
 					break;
 				}
-				Viewer.displayData(Student.getFields(), nameFound.toArray());
-				System.out.println("Total found:"+nameFound.size()+" students");
-				if(!Confirmation("Do you want to delete these data")){
-					System.out.println("Deleting cancel!");
+				Viewer.displayData(Student.getFields(), Found.toArray());
+				
+				String name=Input.string("Input name:");
+				if(!Confirmation("Are you sure to update")){
+					System.out.println("Updating data cancel!");
 					break;
 				}
-				for(Student st:nameFound){
-					StudentDAO.deleteDataById(st.getId());
+				if(StudentDAO.updateData(new Student(idF, name, Found.get(0).getSex(), Found.get(0).getDob(),null))){
+					System.out.println("Update data succeeded!");
+					break;
 				}
-				System.out.println("Deleting data succeed!");
+				System.out.println("Failed to Update data!");
 				break;
-			case "3":
+
+			/*case "3":
 				if(!Confirmation("Are you sure to delete all data")){
 					System.out.println("Deleting data cancel!");
 					break;
@@ -154,11 +165,11 @@ public class UI_Control {
 					break;
 				}
 				System.out.println("Delete data succeed!");
-				break;
+				break;*/
 			default:
 			}
 			
-		}while(!choice.equalsIgnoreCase("exit"));*/	
+		}while(!choice.equalsIgnoreCase("exit"));	
 	}
 	
 	/*----------------------------------search data----------------------------*/

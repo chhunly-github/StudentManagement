@@ -118,7 +118,7 @@ public class StudentDAO {
 		}
 		return false;
 	}
-	public boolean updateData(Student st){
+	public static boolean updateData(Student st){
 		try {
 			Connection cnn=DbConnection.getConnection("dbStudent");
 			String sql="UPDATE tbstudent SET(name=?,sex=?,dob=?) WHERE id=?;";
