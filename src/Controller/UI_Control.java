@@ -44,7 +44,7 @@ public class UI_Control {
 				int id=(int)Input.Floats("Input delete id:");
 				ArrayList<Student> idFound=StudentDAO.searchStudentById(id);
 				if(idFound.size()==0){
-					System.out.println("Could not data id:"+id);
+					System.out.println("Could not find data id:"+id);
 					break;
 				}
 				Viewer.displayData(Student.getFields(), idFound.toArray());
@@ -177,7 +177,7 @@ public class UI_Control {
 				int id=(int)Input.Floats("Input search id:");
 				ArrayList<Student> idFound=StudentDAO.searchStudentById(id);
 				if(idFound.size()==0){
-					System.out.println("Could not data id:"+id);
+					System.out.println("Could not find data id:"+id);
 					break;
 				}
 				
